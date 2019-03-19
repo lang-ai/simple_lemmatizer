@@ -143,7 +143,7 @@ func generateLangDict(Language string, files []string) error {
 
 func main() {
 	fmt.Println("Starting dictionaries generation...")
-	fmt.Println("[Corrector] Loading dictionaries...")
+	fmt.Println("[Lemmatizer] Loading es dictionaries...")
 	esFiles := []string{
 		"./data/es/MM.adj",
 		"./data/es/MM.adv",
@@ -157,5 +157,21 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println("[Corrector] Dictionaries loaded.")
+	fmt.Println("[Lemmatizer] es Dictionaries loaded.")
+	fmt.Println("[Lemmatizer] Loading fr dictionaries...")
+	frFiles := []string{
+		"./data/fr/lefff.adj",
+		"./data/fr/lefff.adv",
+		"./data/fr/lefff.int",
+		"./data/fr/lefff.nom",
+		"./data/fr/lefff.tanc",
+		"./data/fr/lefff.vaux",
+		"./data/fr/lefff.verb",
+	}
+	err = generateLangDict("fr", frFiles)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println("[Lemmatizer] fr Dictionaries loaded.")
+
 }
